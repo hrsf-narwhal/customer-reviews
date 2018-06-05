@@ -1,13 +1,27 @@
 const express = require('express');
 const morgan = require('morgan');
-const data = require('../database/data.js');
+const connection = require('../database/db.js');
 const path = require('path');
+const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3002;
 
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, '../public')));
 
+app.use('/listing/:productID', express.static(path.join(__dirname, '../public')));
+
+app.use(bodyParser.json());
+
+
+app.get('/api/listing/:productID', (req, res) => {
+	let query = `SELECT * FROM reviews WHERE productID=${req.params.productID}`;
+  connection.con.query(query, function(err, result) {
+  	if(err) {
+  		res.status(500).send();
+  	}
+  	res.status(200).send(result)
+  });
+});
 
 
 
