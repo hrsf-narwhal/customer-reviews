@@ -29,5 +29,9 @@
     "react-dom": "^16.2.0",
     "underscore": "^1.9.1",
     "webpack": "^3.11.0"
+  },
+  "devDependencies": {
+    "css-loader": "^0.28.11",
+    "style-loader": "^0.21.0"
   }
 }

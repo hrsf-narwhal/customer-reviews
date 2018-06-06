@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
+import style from '../style/style.css';
 
 export default class Reviews extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ export default class Reviews extends React.Component {
 
     render() {
       return (
-        <div>
+        <div className={style.pan}>
         <ReviewList reviews={this.state.data} />
         </div>
       );
