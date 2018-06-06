@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import ReviewList from './ReviewList.jsx';
 
 export default class Reviews extends React.Component {
   constructor(props) {
@@ -20,34 +20,19 @@ export default class Reviews extends React.Component {
         this.setState({
           data: res.data
         })
+        console.log(res.data)
       })
       .catch((err) => {
-        console.log('AXIOS get error:',err);
+        console.log('AXIOS get error:', err);
       })
    }   
     
-  
+
     render() {
       return (
-        <table >
-          <thead>
-            <tr>
-              <th>Reviews (657) </th>   
-            </tr>
-          </thead>
-          <tbody>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <i className="fas fa-star"></i>
-            <tr>
-              <td></td>
-              <td></td>
-              <td>Date</td>   
-            </tr>
-          </tbody>
-        </table>
+        <div>
+        <ReviewList reviews={this.state.data} />
+        </div>
       );
     }
 }
