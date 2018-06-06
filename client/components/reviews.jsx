@@ -8,8 +8,6 @@ export default class Reviews extends React.Component {
 
     this.state = { 
       data: [],
-
-
     };
   }
 
@@ -26,7 +24,6 @@ export default class Reviews extends React.Component {
         console.log('AXIOS get error:', err);
       })
    }   
-    
 
     render() {
       return (

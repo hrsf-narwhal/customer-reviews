@@ -12,9 +12,7 @@ const ReviewListEntry = (props) => {
 				<span>Reviewed by {props.review.name}</span>
 				<span>{props.review.review}</span>
 				<img src={props.review.photo}/>
-
 			</div>
-		
 		</div>
 
 	)

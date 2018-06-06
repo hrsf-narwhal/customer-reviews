@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 app.get('/api/listing/:productID', (req, res) => {
 	let query = `SELECT * FROM reviews WHERE productID=${req.params.productID}`;
-  connection.con.query(query, function(err, result) {
+  connection.con.query(query, (err, result) => {
   	if(err) {
   		res.status(500).send();
   	}
