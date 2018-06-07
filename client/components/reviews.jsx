@@ -1,24 +1,38 @@
 import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
+import style from '../style/style.css';
 
 export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = { 
-      data: [],
+      allReviews: [],
+      currentReviews: [],
+      clicked: false,
+      borderOn: false,
     };
+    this.handleClick = this.handleClick.bind(this);
   }
-
+  
+  handleClick(e) {
+    let moreReview = this.state.allReviews.slice(0,10);
+    this.setState({
+      currentReviews: moreReview,
+      clicked: true,
+      borderOn: true,
+    })
+  }
   componentDidMount() {
     let url = document.location.href.slice(30)
     axios.get(`/api/listing/${url}`)
       .then((res) => {
+        let initial = res.data.slice(0,4);
         this.setState({
-          data: res.data
+          allReviews: res.data,
+          currentReviews: initial,
         })
-        console.log(res.data)
       })
       .catch((err) => {
         console.log('AXIOS get error:', err);
@@ -28,7 +42,7 @@ export default class Reviews extends React.Component {
     render() {
       return (
         <div>
-        <ReviewList reviews={this.state.data} />
+        <ReviewList click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />
         </div>
       );
     }
