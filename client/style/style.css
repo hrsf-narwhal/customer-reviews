@@ -1,4 +1,64 @@
 
-.pan {
-	background-color: red;
+img {
+	display: flex;
+	justify-content: flex-start;
+	border-radius: 50%;
+	
 }
+.date {
+	display: flex;
+	justify-content: flex-end;
+}
+
+th, .customer, .date, .review {
+	color: grey;
+}
+
+table, td {
+    margin-top: 20px;
+    margin-left: 10px;
+    border: 1px solid grey;
+    border-right: transparent;
+    border-left: transparent;
+    width: 500px;
+    height: 50px;
+    text-align: left;
+}
+
+.customer {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.review {
+	display: flex;
+	flex-wrap: wrap;
+  float: right;
+	margin-left: 100px;
+  
+}
+
+
+i, button {
+	color: orange;
+  font-weight: bold;
+  border-color: transparent;
+  font-size: 15px;
+
+
+}
+
+button:hover {
+	color: orange;
+	text-decoration: underline;
+	cursor: pointer;
+	border-color: transparent;
+	background: none;
+	font-weight: bold;
+}
+/*Bottom border*/
+
+.bottomBorder {
+	 border-bottom: 1px solid grey;
+}
+

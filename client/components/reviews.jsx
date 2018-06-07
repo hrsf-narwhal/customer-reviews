@@ -8,7 +8,8 @@ export default class Reviews extends React.Component {
     super(props);
 
     this.state = { 
-      data: [],
+      allReviews: [],
+      currentReviews: [],
     };
   }
 
@@ -16,10 +17,19 @@ export default class Reviews extends React.Component {
     let url = document.location.href.slice(30)
     axios.get(`/api/listing/${url}`)
       .then((res) => {
-        this.setState({
-          data: res.data
+        let initial = [];
+        let limit = 0;
+        res.data.forEach((d)=> {
+          while(limit < 4){
+            initial.push(d)
+            limit++
+          }
         })
-        console.log(res.data)
+        this.setState({
+          allReviews: res.data,
+          currentReviews: initial,
+
+        })
       })
       .catch((err) => {
         console.log('AXIOS get error:', err);
@@ -28,8 +38,8 @@ export default class Reviews extends React.Component {
 
     render() {
       return (
-        <div className={style.pan}>
-        <ReviewList reviews={this.state.data} />
+        <div>
+        <ReviewList reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />
         </div>
       );
     }

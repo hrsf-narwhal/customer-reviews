@@ -1,6 +1,6 @@
 import React from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
-
+import style from '../style/style.css';
  const ReviewList = (props) => {
 
 	return (
@@ -9,8 +9,10 @@ import ReviewListEntry from './ReviewListEntry.jsx';
 			  <thead>
 				  <tr>
 				    <th>
+				      Reviews  
 				    	<i className="fas fa-star"></i>
-				   		Reviews ***** ({props.reviews.length}) 
+				    	<i className="fas fa-star"></i>
+				       	( {props.reviewsAll.length} ) 
 				   	</th>
 				  </tr>
 			  </thead>
@@ -18,6 +20,7 @@ import ReviewListEntry from './ReviewListEntry.jsx';
 				  {props.reviews.map((review, i) => {
 				  	return (<ReviewListEntry key={i} review={review}/>)
 				  })}
+				  <button>+ More</button>
 				</tbody>
 			</table>
 		</div>
