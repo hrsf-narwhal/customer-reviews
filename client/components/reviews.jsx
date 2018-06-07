@@ -10,25 +10,28 @@ export default class Reviews extends React.Component {
     this.state = { 
       allReviews: [],
       currentReviews: [],
+      clicked: false,
+      borderOn: false,
     };
+    this.handleClick = this.handleClick.bind(this);
   }
-
+  
+  handleClick(e) {
+    let moreReview = this.state.allReviews.slice(0,10);
+    this.setState({
+      currentReviews: moreReview,
+      clicked: true,
+      borderOn: true,
+    })
+  }
   componentDidMount() {
     let url = document.location.href.slice(30)
     axios.get(`/api/listing/${url}`)
       .then((res) => {
-        let initial = [];
-        let limit = 0;
-        res.data.forEach((d)=> {
-          while(limit < 4){
-            initial.push(d)
-            limit++
-          }
-        })
+        let initial = res.data.slice(0,4);
         this.setState({
           allReviews: res.data,
           currentReviews: initial,
-
         })
       })
       .catch((err) => {
@@ -39,7 +42,7 @@ export default class Reviews extends React.Component {
     render() {
       return (
         <div>
-        <ReviewList reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />
+        <ReviewList click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />
         </div>
       );
     }

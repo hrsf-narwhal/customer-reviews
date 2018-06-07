@@ -1,11 +1,25 @@
 import React from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import style from '../style/style.css';
+ 
+
  const ReviewList = (props) => {
+ 	let button;
+ 	if (!props.clicked) {
+ 		button = <button onClick={props.click}>+ More</button>;
+ 	} else {
+ 		button = <button className={style.allReviewsButton}>Read All Reviews ({props.reviewsAll.length})</button>
+ 	}
+ 	let classStyle;
+ 	if (props.border) {
+ 		classStyle = style.tableBorder;
+ 	} else {
+ 		classStyle = '';
+ 	}
 
 	return (
 		<div>
-			<table>
+			<table className={classStyle}>
 			  <thead>
 				  <tr>
 				    <th>
@@ -20,7 +34,7 @@ import style from '../style/style.css';
 				  {props.reviews.map((review, i) => {
 				  	return (<ReviewListEntry key={i} review={review}/>)
 				  })}
-				  <button>+ More</button>
+				  { button }
 				</tbody>
 			</table>
 		</div>

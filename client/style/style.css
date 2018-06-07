@@ -14,7 +14,12 @@ th, .customer, .date, .review {
 	color: grey;
 }
 
-table, td {
+.tableBorder {
+	border: 3px solid  #99ccff;
+	box-shadow: 1px 1px #99ccff;
+}
+
+table {
     margin-top: 20px;
     margin-left: 10px;
     border: 1px solid grey;
@@ -38,7 +43,11 @@ table, td {
   
 }
 
-
+.allReviewsButton {
+	background: orange;
+	color: white;
+	font-weight: bold;
+}
 i, button {
 	color: orange;
   font-weight: bold;
