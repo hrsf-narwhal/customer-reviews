@@ -57,6 +57,10 @@ i, button {
 
 }
 
+.starOrange {
+	color: orange;
+
+}
 button:hover {
 	color: orange;
 	text-decoration: underline;

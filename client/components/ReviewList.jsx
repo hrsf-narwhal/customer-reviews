@@ -18,6 +18,7 @@ import style from '../style/style.css';
  	}
 
 	return (
+		
 		<div>
 			<table className={classStyle}>
 			  <thead>
