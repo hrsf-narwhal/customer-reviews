@@ -12,6 +12,7 @@ img {
 
 th, .customer, .date, .review {
 	color: grey;
+	width: auto !important;
 }
 
 .tableBorder {
@@ -28,7 +29,8 @@ table {
     width: 500px;
     height: 50px;
     text-align: left;
-}
+   
+  }
 
 .customer {
 	display: flex;
@@ -55,10 +57,6 @@ i, button {
   font-size: 15px;
 
 
-}
-.align {
-
- white-space: nowrap;
 }
 
 
