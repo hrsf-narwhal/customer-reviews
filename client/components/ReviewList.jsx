@@ -20,13 +20,22 @@ import ReactStars from 'react-stars'
   let rating = 0;
   props.reviewsAll.forEach((el)=> {rating = el.stars + rating})
   rating = Math.max(Math.ceil((rating/props.reviewsAll.length) * 10) / 10).toFixed(1);
-	return (		
+  
+	return (	
+
 		<div>
+			
 			<table className={classStyle}>
+			<form>
+			  <label>
+			    <input type="text" name="name" placeholder="Search within the reviews"/>
+			  </label>
+			  <input className={style.allReviewsButton} type="submit" value="Search" />
+	     </form>
 			  <thead>
 				  <tr>
 				    <th className={style.align}>
-				      Reviews <ReactStars value={rating} edit={false}/>( {props.reviewsAll.length} ) 
+				      Reviews ( {props.reviewsAll.length} ) <ReactStars value={rating} edit={false}/>
 				   	</th>
 				  </tr>
 			  </thead>
