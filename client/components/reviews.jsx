@@ -72,14 +72,13 @@ export default class Reviews extends React.Component {
     render() {
       let output;
       if(this.state.currentReviews.length === 0) {
-        output = <div>
-        Sorry..We couldn't find any reviews that match your search criteria..
+        output = <div className={style.notFound}>
         <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />       
+       Sorry...We couldn't find any reviews that match your search criteria...
         </div>
       } else {
         output = <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />       
       }
-
       return (
         <div>  
           {output}
