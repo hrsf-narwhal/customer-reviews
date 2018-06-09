@@ -9,17 +9,18 @@
 	height: 60px;
 	margin-left: 100px;
 }
-.description {
+
+.description:hover {
 	margin-left: 20px;
 	color: grey;
-
+	text-decoration: underline;
 }
 .date {
 	display: flex;
 	justify-content: flex-end;
 }
 
-th, .customer, .date, .review {
+th, .customer, .date, .review, .description {
 	color: grey;
 	width: auto !important;
 }
@@ -64,14 +65,16 @@ i, button {
   font-weight: bold;
   border-color: transparent;
   font-size: 15px;
-
-
 }
 
 
 .star {
 	margin-left: 100px;
 
+}
+.notFound {
+	color: grey;
+	font-weight: bold
 }
 button:hover {
 	color: orange;

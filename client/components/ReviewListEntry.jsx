@@ -1,6 +1,8 @@
 import React from 'react';
 import style from '../style/style.css';
-import ReactStars from 'react-stars'
+import ReactStars from 'react-stars';
+import Highlighter from "react-highlight-words";
+
 
 const ReviewListEntry = (props) => {
 
@@ -12,7 +14,7 @@ const ReviewListEntry = (props) => {
  
 	return (
 			<tr>
-			 <div className={style.bottomBorder}>	 	
+			 <div className={style.bottomBorder}>	 
 				  <td className={style.date}>{props.review.date}</td>  		 
 					<img className={style.avatar} src="https://www.etsy.com/images/avatars/default_avatar_75x75.png"/>	
 					<ReactStars className={style.star}  value={props.review.stars} edit={false}/>
