@@ -4,7 +4,6 @@ import ReviewList from './ReviewList.jsx';
 import style from '../style/style.css';
 import StarRatingComponent from 'react-star-rating-component';
 
-
 export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
@@ -14,8 +13,11 @@ export default class Reviews extends React.Component {
       currentReviews: [],
       clicked: false,
       borderOn: false,
+      input: '',
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
   }
   
@@ -27,11 +29,13 @@ export default class Reviews extends React.Component {
       borderOn: true,
     })
   }
+ 
   componentDidMount() {
     let url = document.location.href.slice(30)
     axios.get(`/api/listing/${url}`)
       .then((res) => {
        let initial = res.data.slice(0,4);
+       console.log(res.data)
         this.setState({
           allReviews: res.data,
           currentReviews: initial,
@@ -40,12 +44,39 @@ export default class Reviews extends React.Component {
       .catch((err) => {
         console.log('AXIOS get error:', err);
       })
-   }   
+   } 
+  handleSearch(e) {
+    e.preventDefault();
+    let value = this.state.input;
+    console.log('value', value)
+    let text = this.state.allReviews;
+    let found = [];
+    text.forEach((el)=> {
+      if(el.review.includes(value)) {
+        found.push(el)
+      }
+    })
+    console.log('found rev',found)
+    if(found.length > 0) {
+      this.setState({
+        currentReviews: found,
+      })
+    } else {
+      <div>Sorry we couldn't find a match </div>
+    }
+  }
+
+  handleChange(e) {
+    this.setState({
+      input: e.target.value
+    });
+  }
+
 
     render() {
       return (
-        <div>
-          <ReviewList click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />
+        <div>  
+          <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />       
         </div>
       );
     }

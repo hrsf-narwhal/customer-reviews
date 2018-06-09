@@ -2,6 +2,7 @@ import React from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import style from '../style/style.css';
 import ReactStars from 'react-stars'
+import Search from './Search.jsx'
  
 
  const ReviewList = (props) => {
@@ -26,12 +27,7 @@ import ReactStars from 'react-stars'
 		<div>
 			
 			<table className={classStyle}>
-			<form>
-			  <label>
-			    <input type="text" name="name" placeholder="Search within the reviews"/>
-			  </label>
-			  <input className={style.allReviewsButton} type="submit" value="Search" />
-	     </form>
+				<Search search={props.search} change={props.change} input={props.input}/>
 			  <thead>
 				  <tr>
 				    <th className={style.align}>
