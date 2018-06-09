@@ -57,7 +57,8 @@ i, button {
 
 }
 
-.starOrange {
+.star {
+	margin-left: 100px;
 	color: orange;
 
 }

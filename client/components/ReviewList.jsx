@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import style from '../style/style.css';
+import ReactStars from 'react-stars'
  
 
  const ReviewList = (props) => {
@@ -17,16 +18,14 @@ import style from '../style/style.css';
  		classStyle = '';
  	}
 
-	return (
-		
+	return (		
 		<div>
 			<table className={classStyle}>
 			  <thead>
 				  <tr>
 				    <th>
-				      Reviews  
-				    	<i className="fas fa-star"></i>
-				    	<i className="fas fa-star"></i>
+				      Reviews
+				     	<ReactStars />
 				       	( {props.reviewsAll.length} ) 
 				   	</th>
 				  </tr>
