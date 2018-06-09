@@ -1,9 +1,18 @@
 
-img {
+.avatar {
 	display: flex;
 	justify-content: flex-start;
-	border-radius: 50%;
-	
+	border-radius: 50%;	
+}
+.product {
+	width: 60px;
+	height: 60px;
+	margin-left: 100px;
+}
+.description {
+	margin-left: 20px;
+	color: grey;
+
 }
 .date {
 	display: flex;
