@@ -35,7 +35,6 @@ export default class Reviews extends React.Component {
     axios.get(`/api/listing/${url}`)
       .then((res) => {
        let initial = res.data.slice(0,4);
-       console.log(res.data)
         this.setState({
           allReviews: res.data,
           currentReviews: initial,
@@ -67,8 +66,6 @@ export default class Reviews extends React.Component {
       input: e.target.value
     });
   }
-  
-
     render() {
       let output;
       if(this.state.currentReviews.length === 0) {

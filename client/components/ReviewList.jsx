@@ -3,7 +3,7 @@ import ReviewListEntry from './ReviewListEntry.jsx';
 import style from '../style/style.css';
 import ReactStars from 'react-stars'
 import Search from './Search.jsx'
- 
+
 
  const ReviewList = (props) => {
  	let button;
@@ -24,8 +24,7 @@ import Search from './Search.jsx'
   
 	return (	
 
-		<div>
-			
+		<div>	
 			<table className={classStyle}>
 				<Search search={props.search} change={props.change} input={props.input}/>
 			  <thead>
@@ -37,7 +36,7 @@ import Search from './Search.jsx'
 			  </thead>
 			  <tbody> 
 				  {props.reviews.map((review, i) => {
-				  	return (<ReviewListEntry key={i} review={review}/>)
+				  	return (<ReviewListEntry key={i} review={review} input={props.input}/>)
 				  })}
 				  { button }
 				</tbody>
