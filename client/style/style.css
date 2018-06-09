@@ -56,7 +56,16 @@ i, button {
 
 
 }
+.align {
 
+ white-space: nowrap;
+}
+
+
+.star {
+	margin-left: 100px;
+
+}
 button:hover {
 	color: orange;
 	text-decoration: underline;

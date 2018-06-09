@@ -1,6 +1,7 @@
 import React from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import style from '../style/style.css';
+import ReactStars from 'react-stars'
  
 
  const ReviewList = (props) => {
@@ -16,17 +17,16 @@ import style from '../style/style.css';
  	} else {
  		classStyle = '';
  	}
-
-	return (
+  let rating = 0;
+  props.reviewsAll.forEach((el)=> {rating = el.stars + rating})
+  rating = Math.max(Math.ceil((rating/props.reviewsAll.length) * 10) / 10).toFixed(1);
+	return (		
 		<div>
 			<table className={classStyle}>
 			  <thead>
 				  <tr>
-				    <th>
-				      Reviews  
-				    	<i className="fas fa-star"></i>
-				    	<i className="fas fa-star"></i>
-				       	( {props.reviewsAll.length} ) 
+				    <th className={style.align}>
+				      Reviews <ReactStars value={rating} edit={false}/>( {props.reviewsAll.length} ) 
 				   	</th>
 				  </tr>
 			  </thead>

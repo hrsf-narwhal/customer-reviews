@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import style from '../style/style.css';
+import StarRatingComponent from 'react-star-rating-component';
+
 
 export default class Reviews extends React.Component {
   constructor(props) {
@@ -14,6 +16,7 @@ export default class Reviews extends React.Component {
       borderOn: false,
     };
     this.handleClick = this.handleClick.bind(this);
+
   }
   
   handleClick(e) {
@@ -28,7 +31,7 @@ export default class Reviews extends React.Component {
     let url = document.location.href.slice(30)
     axios.get(`/api/listing/${url}`)
       .then((res) => {
-        let initial = res.data.slice(0,4);
+       let initial = res.data.slice(0,4);
         this.setState({
           allReviews: res.data,
           currentReviews: initial,
@@ -42,7 +45,7 @@ export default class Reviews extends React.Component {
     render() {
       return (
         <div>
-        <ReviewList click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />
+          <ReviewList click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />
         </div>
       );
     }
