@@ -48,7 +48,6 @@ export default class Reviews extends React.Component {
   handleSearch(e) {
     e.preventDefault();
     let value = this.state.input;
-    console.log('value', value)
     let text = this.state.allReviews;
     let found = [];
     text.forEach((el)=> {
@@ -56,14 +55,11 @@ export default class Reviews extends React.Component {
         found.push(el)
       }
     })
-    console.log('found rev',found)
-    if(found.length > 0) {
+    
       this.setState({
         currentReviews: found,
       })
-    } else {
-      <div>Sorry we couldn't find a match </div>
-    }
+    
   }
 
   handleChange(e) {
@@ -71,12 +67,22 @@ export default class Reviews extends React.Component {
       input: e.target.value
     });
   }
-
+  
 
     render() {
+      let output;
+      if(this.state.currentReviews.length === 0) {
+        output = <div>
+        Sorry..We couldn't find any reviews that match your search criteria..
+        <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />       
+        </div>
+      } else {
+        output = <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />       
+      }
+
       return (
         <div>  
-          <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />       
+          {output}
         </div>
       );
     }
