@@ -17,16 +17,16 @@ import ReactStars from 'react-stars'
  	} else {
  		classStyle = '';
  	}
-
+  let rating = 0;
+  props.reviewsAll.forEach((el)=> {rating = el.stars + rating})
+  rating = Math.max(Math.ceil((rating/props.reviewsAll.length) * 10) / 10).toFixed(1);
 	return (		
 		<div>
 			<table className={classStyle}>
 			  <thead>
 				  <tr>
-				    <th>
-				      Reviews
-				     	<ReactStars />
-				       	( {props.reviewsAll.length} ) 
+				    <th className={style.align}>
+				      Reviews <ReactStars value={rating} edit={false}/>( {props.reviewsAll.length} ) 
 				   	</th>
 				  </tr>
 			  </thead>

@@ -56,10 +56,14 @@ i, button {
 
 
 }
+.align {
+
+ white-space: nowrap;
+}
+
 
 .star {
 	margin-left: 100px;
-	color: orange;
 
 }
 button:hover {
