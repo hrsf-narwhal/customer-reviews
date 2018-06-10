@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import style from '../style/style.css';
-import StarRatingComponent from 'react-star-rating-component';
+
 
 export default class Reviews extends React.Component {
   constructor(props) {
