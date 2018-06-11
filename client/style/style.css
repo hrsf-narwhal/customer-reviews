@@ -1,4 +1,22 @@
+textarea {
 
+	width: 500px;
+	height: 100px;
+}
+.starMain {
+	margin-left: 190px;
+
+}
+
+.write {
+	background: orange;
+	color: white;
+	font-weight: bold;
+	border: 1px solid orange;
+	width: 500px;
+	height: 20px;
+
+}
 .avatar {
 	display: flex;
 	justify-content: flex-start;

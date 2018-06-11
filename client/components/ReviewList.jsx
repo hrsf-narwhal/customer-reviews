@@ -1,8 +1,9 @@
 import React from 'react';
 import ReviewListEntry from './ReviewListEntry.jsx';
 import style from '../style/style.css';
-import ReactStars from 'react-stars'
-import Search from './Search.jsx'
+import ReactStars from 'react-stars';
+import Search from './Search.jsx';
+import ReviewPost from './ReviewPost.jsx';
 
 
  const ReviewList = (props) => {
@@ -25,12 +26,13 @@ import Search from './Search.jsx'
 	return (	
 
 		<div>	
+		  <ReviewPost/>
 			<table className={classStyle}>
 				<Search search={props.search} change={props.change} input={props.input}/>
 			  <thead>
 				  <tr>
 				    <th className={style.align}>
-				      Reviews ( {props.reviewsAll.length} ) <ReactStars value={rating} edit={false}/>
+				      Reviews ( {props.reviewsAll.length} ) <ReactStars value={Number(rating)} edit={false}/>
 				   	</th>
 				  </tr>
 			  </thead>
