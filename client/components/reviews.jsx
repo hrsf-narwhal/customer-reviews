@@ -44,8 +44,6 @@ export default class Reviews extends React.Component {
 
   }
   handleRatingChange(newRating) {
-    console.log('invoked');
-    console.log(newRating)
     this.setState({
       rating: newRating
     })
