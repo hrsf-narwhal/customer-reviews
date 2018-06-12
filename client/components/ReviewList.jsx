@@ -25,14 +25,14 @@ import ReviewPost from './ReviewPost.jsx';
   
 	return (	
 		<div className={style.span}>	
-			  <ReviewPost changeReview={props.changeReview} value={props.value} ratingChange={props.ratingChange} rating={props.rating} submitReview={props.submitReview}/>
+			  <ReviewPost changeReview={props.changeReview} value={props.value} 
+			  ratingChange={props.ratingChange} rating={props.rating} submitReview={props.submitReview}
+			  />
 			<div className={classStyle}>
 				<span className={style.span}>
 					<Search search={props.search} change={props.change} input={props.input}/>		
-					  <div className={style.rev}>
-					    <div className={style.rev}>
+					  <div className={style.rev}>		 
 					      Reviews ( {props.reviewsAll.length} ) <ReactStars value={Number(rating)} edit={false}/>
-					   	</div>
 					  </div>		
 				  <div> 
 					  {props.reviews.map((review, i) => {
