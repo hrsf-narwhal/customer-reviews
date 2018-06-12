@@ -25,14 +25,16 @@ export default class Reviews extends React.Component {
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleResponse = this.handleResponse.bind(this);
 
-
   }
 
   handleSubmitReview(e) {
     let url = document.location.href.slice(30)
+    let product = url.slice(0,4)
     axios.post(`/api/listing/{url}`, {
       stars: this.state.rating,
       review: this.state.value,
+      productID: product
+
     })
       .then((response) => {
         this.handleResponse();

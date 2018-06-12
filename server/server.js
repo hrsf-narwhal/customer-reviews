@@ -5,6 +5,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 3002;
+const faker = require('faker');
 
 app.use(morgan('dev'));
 
@@ -25,13 +26,23 @@ app.get('/api/listing/:productID', (req, res) => {
 
 
 app.post('/api/listing/:productID', (req, res) => {
-	console.log('this is req body',req.body)
-	// let insertQuery = `INSERT INTO reviews 
- //            (stars, date, photo, review, name, itemDescription, customerAvatar, productID)
- //            VALUES (?,?)`;
-
-
+	let date = faker.date.between('2017-01-01', '2018-06-01').toString().slice(0,10);
+	let name = faker.name.findName();
+	let productDesc = faker.commerce.productName();
+	let stars = req.body.stars;
+	let review = req.body.review;
+	let productID = req.body.productID;
+	//{ stars: 3, review: 'f', productID: '1003' }
+	connection.con.query(`INSERT INTO reviews (stars, date, review, name, itemDescription, productID)
+            VALUES ('${stars}','${date}', '${review}', '${name}', '${productDesc}', '${productID}')`,
+            (err, result) => {
+            	if(err) {
+            		res.status(500).send();
+            	}
+           	  res.status(201).send();
+   });
 })
+
 
 
 

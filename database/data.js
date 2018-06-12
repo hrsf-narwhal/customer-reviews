@@ -26,7 +26,8 @@ for (let b = 1; b <= 1000; b++) {
 	let avatar = faker.image.avatar();
 	let productID = getRndInteger(1000, 1100);
 
-	connection.con.query(`INSERT INTO reviews ( stars, name, date, photo, review, itemDescription, customerAvatar, productID) VALUES (
+	connection.con.query(`INSERT INTO reviews ( stars, name, date,
+	 photo, review, itemDescription, customerAvatar, productID) VALUES (
 		'${stars}', '${name}', '${date}', '${image}', '${review}', '${productDesc}', '${avatar}', '${productID}')`, function(err, result) {
 			if(err) {
 				console.log('Error inserting data into reviews table:', err)
