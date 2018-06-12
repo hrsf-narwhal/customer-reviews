@@ -40,8 +40,6 @@ export default class Reviews extends React.Component {
       .catch((err) => {
         console.log(err);
       })
- 
-
   }
   handleRatingChange(newRating) {
     this.setState({
@@ -67,7 +65,8 @@ export default class Reviews extends React.Component {
  
   componentDidMount() {
     this.handleResponse();
-   } 
+  }
+
    handleResponse() {
     let url = document.location.href.slice(30)
     axios.get(`/api/listing/${url}`)
@@ -109,11 +108,11 @@ export default class Reviews extends React.Component {
       let output;
       if(this.state.currentReviews.length === 0) {
         output = <div className={style.notFound}>
-        <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} changeReview={this.handleChangeReview} value={this.state.value} ratingChange={this.handleRatingChange} rating={this.state.rating}/>       
+        <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} changeReview={this.handleChangeReview} value={this.state.value} ratingChange={this.handleRatingChange} rating={this.state.rating} submitReview={this.handleSubmitReview}/>       
        Sorry...We couldn't find any reviews that match your search criteria...
         </div>
       } else {
-        output = <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} changeReview={this.handleChangeReview} value={this.state.value} ratingChange={this.handleRatingChange} rating={this.state.rating}/>       
+        output = <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} changeReview={this.handleChangeReview} value={this.state.value} ratingChange={this.handleRatingChange} rating={this.state.rating} submitReview={this.handleSubmitReview}/>       
       }
       return (
         <div>  

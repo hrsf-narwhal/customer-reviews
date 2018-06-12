@@ -24,6 +24,16 @@ app.get('/api/listing/:productID', (req, res) => {
 });
 
 
+app.post('/api/listing/:productID', (req, res) => {
+	console.log('this is req body',req.body)
+	// let insertQuery = `INSERT INTO reviews 
+ //            (stars, date, photo, review, name, itemDescription, customerAvatar, productID)
+ //            VALUES (?,?)`;
+
+
+})
+
+
 
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);

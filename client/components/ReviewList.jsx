@@ -26,7 +26,7 @@ import ReviewPost from './ReviewPost.jsx';
 	return (	
 
 		<div>	
-		  <ReviewPost changeReview={props.changeReview} value={props.value} ratingChange={props.ratingChange} rating={props.rating}/>
+		  <ReviewPost changeReview={props.changeReview} value={props.value} ratingChange={props.ratingChange} rating={props.rating} submitReview={props.submitReview}/>
 			<table className={classStyle}>
 				<Search search={props.search} change={props.change} input={props.input}/>
 			  <thead>
