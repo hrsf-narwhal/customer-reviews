@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import ReviewList from './ReviewList.jsx';
 import style from '../style/style.css';
-import StarRatingComponent from 'react-star-rating-component';
+
 
 export default class Reviews extends React.Component {
   constructor(props) {
@@ -14,10 +14,44 @@ export default class Reviews extends React.Component {
       clicked: false,
       borderOn: false,
       input: '',
+      value: '',
+      rating: '',
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmitReview = this.handleSubmitReview.bind(this);
+    this.handleChangeReview = this.handleChangeReview.bind(this);
+    this.handleRatingChange = this.handleRatingChange.bind(this);
+    this.handleResponse = this.handleResponse.bind(this);
+
+  }
+
+  handleSubmitReview(e) {
+    let url = document.location.href.slice(30)
+    let product = url.slice(0,4)
+    axios.post(`/api/listing/{url}`, {
+      stars: this.state.rating,
+      review: this.state.value,
+      productID: product
+    })
+      .then((response) => {
+        this.handleResponse();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+  handleRatingChange(newRating) {
+    this.setState({
+      rating: newRating
+    })
+
+  }
+  handleChangeReview(e) {
+     this.setState({
+      value: e.target.value
+     });
 
   }
   
@@ -31,6 +65,10 @@ export default class Reviews extends React.Component {
   }
  
   componentDidMount() {
+    this.handleResponse();
+  }
+
+   handleResponse() {
     let url = document.location.href.slice(30)
     axios.get(`/api/listing/${url}`)
       .then((res) => {
@@ -43,7 +81,7 @@ export default class Reviews extends React.Component {
       .catch((err) => {
         console.log('AXIOS get error:', err);
       })
-   } 
+   }
   handleSearch(e) {
     e.preventDefault();
     let value = this.state.input;
@@ -55,9 +93,9 @@ export default class Reviews extends React.Component {
       }
     })
     
-      this.setState({
-        currentReviews: found,
-      })
+    this.setState({
+      currentReviews: found,
+    })
     
   }
 
@@ -70,11 +108,11 @@ export default class Reviews extends React.Component {
       let output;
       if(this.state.currentReviews.length === 0) {
         output = <div className={style.notFound}>
-        <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />       
+        <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} changeReview={this.handleChangeReview} value={this.state.value} ratingChange={this.handleRatingChange} rating={this.state.rating} submitReview={this.handleSubmitReview}/>       
        Sorry...We couldn't find any reviews that match your search criteria...
         </div>
       } else {
-        output = <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} />       
+        output = <ReviewList input={this.state.input} change={this.handleChange} search={this.handleSearch} click={this.handleClick} border={this.state.borderOn} clicked={this.state.clicked} reviewsAll={this.state.allReviews} reviews={this.state.currentReviews} changeReview={this.handleChangeReview} value={this.state.value} ratingChange={this.handleRatingChange} rating={this.state.rating} submitReview={this.handleSubmitReview}/>       
       }
       return (
         <div>  

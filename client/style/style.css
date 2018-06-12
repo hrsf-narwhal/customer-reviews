@@ -1,4 +1,30 @@
 
+textarea {
+	width: 500px;
+	height: 100px;
+}
+.starMain {
+	margin-left: 190px;
+
+}
+
+.postReview {
+	margin-bottom: 20px;
+}
+
+.span {
+	width: 500px;
+}
+.write {
+	background: orange;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	border: 1px solid orange;
+	width: 500px;
+	height: 20px;
+
+}
 .avatar {
 	display: flex;
 	justify-content: flex-start;
@@ -19,8 +45,12 @@
 	display: flex;
 	justify-content: flex-end;
 }
+.rev {
+	color: grey;
+	font-weight: bold;
+}
 
-th, .customer, .date, .review, .description {
+th, .customer, .date, .review, .description{
 	color: grey;
 	width: auto !important;
 }
@@ -58,7 +88,8 @@ table {
 .allReviewsButton {
 	background: orange;
 	color: white;
-	font-weight: bold;
+	width: auto;
+	height: 18px;
 }
 i, button {
 	color: orange;
@@ -84,7 +115,13 @@ button:hover {
 	background: none;
 	font-weight: bold;
 }
-/*Bottom border*/
+
+.submit {
+	background: orange;
+	color: white;
+	font-weight: bold;
+	float: right;
+}
 
 .bottomBorder {
 	 border-bottom: 1px solid grey;
