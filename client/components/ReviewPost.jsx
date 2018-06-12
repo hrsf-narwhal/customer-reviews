@@ -8,13 +8,12 @@ const ReviewPost = (props) => {
 	const ratingChanged = (newRating) => {
 		props.ratingChange(newRating)
   }
-
 	return (
-  	<div>
+  	<div className={style.postReview}>
   	 <div className={style.write}> Start your review  </div>
 	  	<ReactStars className={style.starMain} edit={true} size={25}  value={Number(props.rating)} onChange={ratingChanged}/>
 	  	<textarea value={props.value} onChange={props.changeReview}/>
-	  	<button onClick={props.submitReview}>Submit</button>
+	  	<button className={style.submit} onClick={props.submitReview}>Submit</button>
     </div>
   )
 }

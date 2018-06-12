@@ -8,11 +8,16 @@ textarea {
 
 }
 
+.postReview {
+	margin-bottom: 20px;
+}
+
 .span {
 	width: 500px;
 }
 .write {
 	background: orange;
+	text-align: center;
 	color: white;
 	font-weight: bold;
 	border: 1px solid orange;
@@ -108,6 +113,13 @@ button:hover {
 	border-color: transparent;
 	background: none;
 	font-weight: bold;
+}
+
+.submit {
+	background: orange;
+	color: white;
+	font-weight: bold;
+	float: right;
 }
 /*Bottom border*/
 
