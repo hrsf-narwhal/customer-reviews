@@ -88,7 +88,8 @@ table {
 .allReviewsButton {
 	background: orange;
 	color: white;
-	font-weight: bold;
+	width: auto;
+	height: 18px;
 }
 i, button {
 	color: orange;
