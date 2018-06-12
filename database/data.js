@@ -19,7 +19,7 @@ for (let b = 1; b <= 1000; b++) {
 
 	let stars = faker.random.number({min:0, max:5});
   let name = faker.name.findName();
-  let date = faker.date.between('2017-01-01', '2018-06-01').toString().slice(0,10);
+  let date = faker.date.between('2017-01-01', '2018-06-01').toString().slice(0,15);
   let image = faker.image.fashion();
   let review = faker.lorem.sentences();
 	let productDesc = faker.commerce.productName();

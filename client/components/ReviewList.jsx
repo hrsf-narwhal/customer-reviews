@@ -24,25 +24,24 @@ import ReviewPost from './ReviewPost.jsx';
   rating = Math.max(Math.ceil((rating/props.reviewsAll.length) * 10) / 10).toFixed(1);
   
 	return (	
-
-		<div>	
-		  <ReviewPost changeReview={props.changeReview} value={props.value} ratingChange={props.ratingChange} rating={props.rating} submitReview={props.submitReview}/>
-			<table className={classStyle}>
-				<Search search={props.search} change={props.change} input={props.input}/>
-			  <thead>
-				  <tr>
-				    <th className={style.align}>
-				      Reviews ( {props.reviewsAll.length} ) <ReactStars value={Number(rating)} edit={false}/>
-				   	</th>
-				  </tr>
-			  </thead>
-			  <tbody> 
-				  {props.reviews.map((review, i) => {
-				  	return (<ReviewListEntry key={i} review={review} input={props.input}/>)
-				  })}
-				  { button }
-				</tbody>
-			</table>
+		<div className={style.span}>	
+			  <ReviewPost changeReview={props.changeReview} value={props.value} ratingChange={props.ratingChange} rating={props.rating} submitReview={props.submitReview}/>
+			<div className={classStyle}>
+				<span className={style.span}>
+					<Search search={props.search} change={props.change} input={props.input}/>		
+					  <div className={style.rev}>
+					    <div className={style.rev}>
+					      Reviews ( {props.reviewsAll.length} ) <ReactStars value={Number(rating)} edit={false}/>
+					   	</div>
+					  </div>		
+				  <div> 
+					  {props.reviews.map((review, i) => {
+					  	return (<ReviewListEntry key={i} review={review} input={props.input}/>)
+					  })}
+					  { button }
+					</div>
+				</span>
+				</div>
 		</div>
   );
 }

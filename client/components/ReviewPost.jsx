@@ -12,7 +12,7 @@ const ReviewPost = (props) => {
 	return (
   	<div>
   	 <div className={style.write}> Start your review  </div>
-	  	<ReactStars className={style.starMain} edit={true} size={25}  value={props.rating} onChange={ratingChanged}/>
+	  	<ReactStars className={style.starMain} edit={true} size={25}  value={Number(props.rating)} onChange={ratingChanged}/>
 	  	<textarea value={props.value} onChange={props.changeReview}/>
 	  	<button onClick={props.submitReview}>Submit</button>
     </div>

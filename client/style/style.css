@@ -1,5 +1,5 @@
-textarea {
 
+textarea {
 	width: 500px;
 	height: 100px;
 }
@@ -8,6 +8,9 @@ textarea {
 
 }
 
+.span {
+	width: 500px;
+}
 .write {
 	background: orange;
 	color: white;
@@ -37,8 +40,12 @@ textarea {
 	display: flex;
 	justify-content: flex-end;
 }
+.rev {
+	color: grey;
+	font-weight: bold;
+}
 
-th, .customer, .date, .review, .description {
+th, .customer, .date, .review, .description{
 	color: grey;
 	width: auto !important;
 }

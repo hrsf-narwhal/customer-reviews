@@ -26,13 +26,12 @@ app.get('/api/listing/:productID', (req, res) => {
 
 
 app.post('/api/listing/:productID', (req, res) => {
-	let date = faker.date.between('2017-01-01', '2018-06-01').toString().slice(0,10);
+	let date = faker.date.between('2017-01-01', '2018-06-01').toString().slice(0,15);
 	let name = faker.name.findName();
 	let productDesc = faker.commerce.productName();
 	let stars = req.body.stars;
 	let review = req.body.review;
 	let productID = req.body.productID;
-	//{ stars: 3, review: 'f', productID: '1003' }
 	connection.con.query(`INSERT INTO reviews (stars, date, review, name, itemDescription, productID)
             VALUES ('${stars}','${date}', '${review}', '${name}', '${productDesc}', '${productID}')`,
             (err, result) => {
