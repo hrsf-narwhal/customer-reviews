@@ -26,7 +26,7 @@ app.get('/api/listing/:productID', (req, res) => {
 
 
 app.post('/api/listing/:productID', (req, res) => {
-	let date = faker.date.between('2017-01-01', '2018-06-01').toString().slice(0,15);
+	let date = new Date().toString().slice(0,15);
 	let name = faker.name.findName();
 	let productDesc = faker.commerce.productName();
 	let stars = req.body.stars;
