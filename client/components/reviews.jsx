@@ -69,12 +69,11 @@ export default class Reviews extends React.Component {
   }
 
    handleResponse() {
-    let that = this;
     let url = document.location.href.slice(30)
     axios.get(`/api/listing/${url}`)
       .then((res) => {
        let initial = res.data.slice(0,4);
-        that.setState({
+        this.setState({
           allReviews: res.data,
           currentReviews: initial,
         })
