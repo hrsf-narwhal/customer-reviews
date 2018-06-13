@@ -1,5 +1,4 @@
 const express = require('express');
-const morgan = require('morgan');
 const connection = require('../database/db.js');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -7,8 +6,9 @@ const app = express();
 const port = process.env.PORT || 3002;
 const faker = require('faker');
 
-app.use(morgan('dev'));
 
+
+app.use(express.static(path.resolve(__dirname, '../public')));
 app.use('/listing/:productID', express.static(path.join(__dirname, '../public')));
 
 app.use(bodyParser.json());

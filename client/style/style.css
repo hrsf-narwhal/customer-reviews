@@ -1,4 +1,3 @@
-
 textarea {
 	width: 500px;
 	height: 100px;
@@ -10,6 +9,11 @@ textarea {
 
 .postReview {
 	margin-bottom: 20px;
+	
+}
+.input {
+	height: 21px;
+	 
 }
 
 .span {
@@ -85,11 +89,18 @@ table {
   
 }
 
+.left {
+	text-align: left;
+	color: grey;
+}
+
 .allReviewsButton {
 	background: orange;
 	color: white;
 	width: auto;
-	height: 18px;
+	height: 25px;
+	margin: 0;
+	line-height: 1.15;
 }
 i, button {
 	color: orange;
@@ -121,6 +132,7 @@ button:hover {
 	color: white;
 	font-weight: bold;
 	float: right;
+	
 }
 
 .bottomBorder {
