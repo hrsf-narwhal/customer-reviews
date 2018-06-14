@@ -20,11 +20,11 @@ textarea {
 	width: 500px;
 }
 .write {
-	background: orange;
+	background: rgb(245, 100, 0);
 	text-align: center;
 	color: white;
 	font-weight: bold;
-	border: 1px solid orange;
+	border: 1px solid rgb(245, 100, 0);
 	width: 500px;
 	height: 20px;
 
@@ -34,6 +34,7 @@ textarea {
 	justify-content: flex-start;
 	border-radius: 50%;	
 }
+
 .product {
 	width: 60px;
 	height: 60px;
@@ -95,7 +96,7 @@ table {
 }
 
 .allReviewsButton {
-	background: orange;
+	background: rgb(245, 100, 0);
 	color: white;
 	width: auto;
 	height: 25px;
@@ -103,7 +104,7 @@ table {
 	line-height: 1.15;
 }
 i, button {
-	color: orange;
+	color: rgb(245, 100, 0);
   font-weight: bold;
   border-color: transparent;
   font-size: 15px;
@@ -119,7 +120,7 @@ i, button {
 	font-weight: bold
 }
 button:hover {
-	color: orange;
+	color: rgb(245, 100, 0);
 	text-decoration: underline;
 	cursor: pointer;
 	border-color: transparent;
@@ -128,7 +129,7 @@ button:hover {
 }
 
 .submit {
-	background: orange;
+	background: rgb(245, 100, 0);
 	color: white;
 	font-weight: bold;
 	float: right;
