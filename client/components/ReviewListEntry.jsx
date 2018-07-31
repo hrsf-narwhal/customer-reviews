@@ -14,7 +14,8 @@ const ReviewListEntry = (props) => {
 		      	<Highlighter  searchWords={[props.input]} autoEscape={true} textToHighlight={props.review.review}/>
 		      </div>
 					<span className={style.customer}>Reviewed by <br/> {props.review.name}</span> 
-				  <img className={style.product} /> 
+				  <img className={style.product} 
+				  src={props.review.photo}/> 
 				  <span className={style.description}>
 				  {props.review.itemDescription}
 				  </span>
@@ -25,4 +26,3 @@ const ReviewListEntry = (props) => {
 
 export default ReviewListEntry;
 
-//src={`https://s3-us-west-1.amazonaws.com/hrsfitsyproductreviews/Itsy-photos+(1)/${props.review.productID}/${props.review.productID}-01.jpg`}
