@@ -1,20 +1,15 @@
 # Itsy Reviews component
 
-Reviews component of the Etsy's product page.
+Reviews component of the Itsy's product page.
 
 > Project description
 
 ## Related Projects
 
-  - https://github.com/hrsf-narwhal/
-  - https://github.com/hrsf-narwhal/
-  - https://github.com/hrsf-narwhal/
+  - https://github.com/hrsf-narwhal/customer-reviews
+  - https://github.com/hrsf-narwhal/photo-gallery
+  - https://github.com/hrsf-narwhal/product-info-purchase
 
-
-
-## Usage
-
-> Some usage instructions
 
 ## Requirements
 
@@ -42,7 +37,14 @@ npm run react-dev
 
 ```sh
 mysql -u username -p password < schema.sql
-node database/data.js
+
+### Generate Dummy Data
+
+cd into /database/
+
+```sh
+node data.js
+
 ```
 ### Run Server
 
